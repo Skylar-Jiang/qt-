@@ -11,3 +11,5 @@
 #define ZOM_MOVE 0
 #define ZOM_ATK 1
 #define ZOM_DIE 2
+
+#endif // BASIC_H
