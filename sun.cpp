@@ -1,0 +1,59 @@
+#include "sun.h"
+#include "shop.h"
+
+Sun::Sun()
+{   //系统自然产生的太阳
+    dest = QPointF(290 + qrand() % (82 * 7), 130 + qrand() % (98 * 5));
+    setPos(QPointF(dest.x(), 70));
+    speed = 60.0 * 50 / 1000;
+    counter = 0;
+    time = int(10.0 * 1000 / 33);
+    movie = new QMovie(":/images/Sun.gif");
+    movie->start();
+}
+
+Sun::Sun(QPointF pos)
+{   //太阳花产生的太阳
+    dest = QPointF(pos.x() + qrand() % 30 - 15, pos.y() + qrand() % 30 + 15);
+    setPos(QPointF(dest.x(), pos.y()));
+    speed = 60 * 50 / 1000;
+    counter = 0;
+    time = int(10.0 * 1000 / 33);
+    movie = new QMovie(":/images/Sun.gif");
+    movie->start();
+}
+
+Sun::~Sun()
+{
+    if (movie)
+        delete movie;
+}
+
+QRectF Sun::boundingRect() const
+{
+    return QRectF(-35, -35, 70, 70);
+}
+
+void Sun::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    painter->drawImage(boundingRect(), movie->currentImage());
+}
+
+void Sun::mousePressEvent(QGraphicsSceneMouseEvent *event)
+{
+    Shop *shop = qgraphicsitem_cast<Shop *>(scene()->items(QPointF(300, 15))[0]);
+    shop->sun += 25;
+    counter = time;
+    event->setAccepted(true);
+}
+
+void Sun::advance(int phase)
+{   //向下移动
+    if (!phase)
+        return;
+    update();
+    if (++counter >= time)
+        delete this;
+    else if (y() < dest.y())
+        setY(y() + speed);
+}

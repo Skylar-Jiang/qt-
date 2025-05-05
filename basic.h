@@ -12,4 +12,15 @@
 #define ZOM_ATK 1
 #define ZOM_DIE 2
 
+//爆炸状态
+#define BOMB_PRE 0
+#define BOMB_REA 1
+#define BOMB_BOMB 2
+
+#define PUMPKIN_HP 2200
+
+#define atk_speed(x) int(x * 1000 / 33)
+#define attack(x) int(x * 33 / 1000)
+#define sped(x) (80.0 * 33 / 1000 / x)
+
 #endif // BASIC_H
