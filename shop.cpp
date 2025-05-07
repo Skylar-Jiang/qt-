@@ -24,7 +24,7 @@ void Shop::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 {
     painter->drawPixmap(QRect(-270, -45, 540, 90), QPixmap(":/images/Shop.png"));
     QFont font;
-    font.setPointSizeF(15);
+    font.setPointSizeF(10);
     painter->setFont(font);
     painter->drawText(QRectF(-255, 18, 65, 22), Qt::AlignCenter, QString::number(sun));
     painter->drawPoint(-220, 0);

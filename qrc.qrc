@@ -54,5 +54,6 @@
         <file>images/Pumpkin1.gif</file>
         <file>images/Pumpkin2.gif</file>
         <file>txt/maxscore.txt</file>
+        <file>images/WeWin.png</file>
     </qresource>
 </RCC>

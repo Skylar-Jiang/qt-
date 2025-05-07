@@ -14,9 +14,9 @@ void ScoreCard::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
 {
     painter->drawPixmap(QRect(-50, -20, 100, 40), QPixmap(":/images/ScoreCard.jpeg"));
     painter->setPen(Qt::green);
-    QFont font("Calibri", 15, QFont::Bold, true); //字体设置
+    QFont font("Calibri", 10, QFont::Bold, true); //字体设置
     painter->setFont(font);
-    QString sc = " .NOW:" + score;
+    QString sc = "NOW:" + score;
     painter->drawText(boundingRect(), Qt::AlignLeft | Qt::AlignVCenter, sc);
 }
 
@@ -40,10 +40,10 @@ void MaxScoreCard::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
 {
     painter->drawPixmap(QRect(-50, -20, 100, 40), QPixmap(":/images/ScoreCard.jpeg"));
     painter->setPen(Qt::green);
-    QFont font("Calibri", 15, QFont::Bold, true); //字体设置
+    QFont font("Calibri", 10, QFont::Bold, true); //字体设置
     painter->setFont(font);
     if(score.toInt() > 999)
         score == "999";
-    QString sc = " .MAX:" + score;
+    QString sc = "MAX:" + score;
     painter->drawText(boundingRect(), Qt::AlignLeft | Qt::AlignVCenter, sc);
 }
