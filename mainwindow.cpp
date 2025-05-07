@@ -58,6 +58,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     view->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
     connect(timer, &QTimer::timeout, scene, &QGraphicsScene::advance);
     connect(timer, &QTimer::timeout, this, &MainWindow::addZombie);
+    connect(timer, &QTimer::timeout, this, &MainWindow::checkLose);
     connect(timer, &QTimer::timeout, this, &MainWindow::checkWin);
     timer->start(33);
     view->show();
@@ -130,8 +131,8 @@ void MainWindow::addZombie()
     }
 }
 
-//检查是否胜利
-void MainWindow::checkWin()
+//检查是否失败
+void MainWindow::checkLose()
 {
     static int time = 1 * 1000 / 33;
     static int counter = 0;
@@ -148,5 +149,17 @@ void MainWindow::checkWin()
                 file->writeScore(score);
                 return;
             }
+    }
+}
+
+//检查是否成功
+void MainWindow::checkWin()
+{
+    if (score >= 500){
+        scene->addPixmap(QPixmap(":/images/WeWin.png"))->setPos(255, 140);
+        scene->advance();
+        timer->stop();
+        file->writeScore(score);
+        return;
     }
 }

@@ -6,7 +6,6 @@ const QMap<QString, int> Card::map = {{"SunFlower", 0}, {"SnowPea", 1}, {"Repeat
 const QVector<QString> Card::name = {"SunFlower", "SnowPea", "Repeater", "WallNut",
                                      "PotatoMine", "CherryBomb", "Pumpkin"};
 const QVector<int> Card::cost = {50, 100, 150, 50, 50, 150, 50};
-//const QVector<int> Card::cool = {227, 227, 227, 606, 606, 1437, 227};
 const QVector<int> Card::cool = {227, 227, 227, 606, 606, 227, 227};
 Card::Card(QString s)
 {

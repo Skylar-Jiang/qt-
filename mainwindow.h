@@ -29,6 +29,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow() override;
     void addZombie();
+    void checkLose();
     void checkWin();
 private:
     File *file;

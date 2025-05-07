@@ -4,7 +4,6 @@
 File::File()
 {
     QFile file("/Users/apple/Desktop/plantVSzombie/txt/maxscore.txt");
-    //QFile file(path);
     if(file.open(QIODevice::ReadOnly))
     {
         score = file.readAll();
