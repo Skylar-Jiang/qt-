@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QGraphicsView>
+#include <QSound>
 #include <QTimer>
 #include <QDebug>
 #include "basic.h"
@@ -35,6 +36,7 @@ private:
     File *file;
     int maxScore;
     int score;
+    QSound *sound;
     QTimer *timer;
     QGraphicsScene *scene;
     QGraphicsView *view;

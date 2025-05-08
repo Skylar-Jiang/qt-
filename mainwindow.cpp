@@ -9,6 +9,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     file = new File;
     maxScore = file->getMaxScore();
     score = 0;
+    sound = new QSound(":/audio/Kitanai_Sekai.wav");
+    sound->setLoops(QSound::Infinite);
+    sound->play();
     //以上会使音乐顺序播放
     timer = new QTimer;
     scene = new QGraphicsScene(this);
@@ -19,12 +22,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     shop->setPos(520, 45);
     scene->addItem(shop);
 
-    //铲子
     Shovel *shovel = new Shovel;
     shovel->setPos(830, 40);
     scene->addItem(shovel);
 
-    //计分板
     scorecard = new ScoreCard(QString::number(score, 10));
     scorecard->setPos(200, 60);
     scene->addItem(scorecard);
@@ -32,10 +33,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     maxscore->setPos(200, 20);
     scene->addItem(maxscore);
 
-    Button *button = new Button(timer);
+    Button *button = new Button(sound, timer);
     button->setPos(970, 20);
     scene->addItem(button);
-    Exit *button1 = new Exit(timer, &maxScore, &score);
+    Exit *button1 = new Exit(sound, timer, &maxScore, &score);
     button1->setPos(970, 60);
     scene->addItem(button1);
 
@@ -43,7 +44,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     map->setPos(618, 326);
     scene->addItem(map);
 
-    //割草机
     for (int i = 0; i < 5; ++i)
     {
         Mower *mower = new Mower;
@@ -66,6 +66,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
 MainWindow::~MainWindow()
 {
+    delete sound;
     delete timer;
     delete scene;
     delete view;
@@ -81,7 +82,7 @@ void MainWindow::addZombie()
     if (++counter >= time)
     {
         counter = 0;
-        //基于一定范围的随机时间算法 参考网络上大佬的写法
+        //基于一定范围的随机时间算法
         time = qrand() % (2 * maxtime / 3) + maxtime / 3;
         //按照不同比例产生僵尸
         int type = qrand() % 150;
@@ -155,7 +156,7 @@ void MainWindow::checkLose()
 //检查是否成功
 void MainWindow::checkWin()
 {
-    if (score >= 500){
+    if (score >= 999){
         scene->addPixmap(QPixmap(":/images/WeWin.png"))->setPos(255, 140);
         scene->advance();
         timer->stop();

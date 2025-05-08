@@ -53,6 +53,7 @@
         <file>images/Pumpkin.gif</file>
         <file>images/Pumpkin1.gif</file>
         <file>images/Pumpkin2.gif</file>
+        <file>audio/Kitanai_Sekai.wav</file>
         <file>txt/maxscore.txt</file>
         <file>images/WeWin.png</file>
     </qresource>

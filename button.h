@@ -2,17 +2,19 @@
 #define BUTTON_H
 
 #include <QTimer>
+#include <QSound>
 #include "interface.h"
 #include "file.h"
 
 class Button : public Interface
 {
 public:
-    Button(QTimer *t);
+    Button(QSound *s, QTimer *t);
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
 private:
+    QSound *sound;
     QTimer *timer;
 };
 
@@ -21,11 +23,12 @@ private:
 class Exit :public Interface
 {
 public:
-    Exit(QTimer *t, int *m, int *sc);
+    Exit(QSound *s, QTimer *t, int *m, int *sc);
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
 private:
+    QSound *sound;
     QTimer *timer;
     int *maxscore;
     int *score;

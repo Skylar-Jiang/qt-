@@ -1,8 +1,9 @@
 #include "button.h"
 #include <QTextStream>
 
-Button::Button( QTimer *t)
+Button::Button(QSound *s, QTimer *t)
 {
+    sound = s;
     timer = t;
 }
 
@@ -29,18 +30,21 @@ void Button::mousePressEvent(QGraphicsSceneMouseEvent *event)
     {
         if (timer->isActive())
         {
+            sound->stop();
             timer->stop();
         }
         else
         {
+            sound->play();
             timer->start();
         }
     }
     update();
 }
 
-Exit::Exit( QTimer *t, int *m, int *sc)
+Exit::Exit(QSound *s, QTimer *t, int *m, int *sc)
 {
+    sound = s;
     timer = t;
     maxscore = m;
     score = sc;
@@ -64,6 +68,7 @@ void Exit::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton)
     {
+        sound->stop();
         timer->stop();
         QFile file("/Users/apple/Desktop/plantVSzombie/txt/maxscore.txt");
         if( *maxscore < *score)

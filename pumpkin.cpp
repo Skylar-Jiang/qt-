@@ -1,4 +1,3 @@
-
 #include "pumpkin.h"
 
 Pumpkin::Pumpkin()
@@ -27,4 +26,3 @@ void Pumpkin::advance(int phase)
         setMovie(":/images/Pumpkin1.gif");
     }
 }
-
