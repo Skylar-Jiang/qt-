@@ -12,7 +12,9 @@ QRectF Map::boundingRect() const
 }
 
 void Map::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
-{ }
+{
+    
+}
 
 void Map::dragEnterEvent(QGraphicsSceneDragDropEvent *event)
 {

@@ -6,7 +6,7 @@
 
 class ScreenZombie : public Zombie
 {
-    //铁栏门僵尸
+    //有个框的僵尸
 public:
     bool screen;
 public:

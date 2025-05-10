@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     sound = new QSound(":/audio/Kitanai_Sekai.wav");
     sound->setLoops(QSound::Infinite);
     sound->play();
-    //以上会使音乐顺序播放
+    //使音乐顺序播放
     timer = new QTimer;
     scene = new QGraphicsScene(this);
     scene->setSceneRect(150, 0, 900, 600);
@@ -58,7 +58,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     view->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
     connect(timer, &QTimer::timeout, scene, &QGraphicsScene::advance);
     connect(timer, &QTimer::timeout, this, &MainWindow::addZombie);
-    connect(timer, &QTimer::timeout, this, &MainWindow::checkLose);
     connect(timer, &QTimer::timeout, this, &MainWindow::checkWin);
     timer->start(33);
     view->show();

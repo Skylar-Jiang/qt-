@@ -10,6 +10,7 @@ Sun::Sun()
     time = int(10.0 * 1000 / 33);
     movie = new QMovie(":/images/Sun.gif");
     movie->start();
+    setAcceptedMouseButtons(Qt::LeftButton);
 }
 
 Sun::Sun(QPointF pos)
@@ -21,6 +22,7 @@ Sun::Sun(QPointF pos)
     time = int(10.0 * 1000 / 33);
     movie = new QMovie(":/images/Sun.gif");
     movie->start();
+    setAcceptedMouseButtons(Qt::LeftButton);
 }
 
 Sun::~Sun()

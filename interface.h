@@ -8,7 +8,9 @@
 class Interface : public QGraphicsItem
 {
 public:
-    enum { Type = UserType + 3};
+    enum {
+        Type = UserType + 3
+    };
     Interface();
     int type() const override;
 };

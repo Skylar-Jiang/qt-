@@ -23,7 +23,7 @@ void Shovel::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 void Shovel::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-    //等价于植物的移动
+    //和植物的移动类似
     if (QLineF(event->screenPos(), event->buttonDownScreenPos(Qt::LeftButton)).length() < QApplication::startDragDistance())
         return;
     QDrag *drag = new QDrag(event->widget());

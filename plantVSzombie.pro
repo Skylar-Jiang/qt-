@@ -46,6 +46,7 @@ SOURCES += \
     shop.cpp \
     shovel.cpp \
     snowpea.cpp \
+    startwindow.cpp \
     sun.cpp \
     sunflower.cpp \
     wallnut.cpp \
@@ -75,6 +76,7 @@ HEADERS += \
     shop.h \
     shovel.h \
     snowpea.h \
+    startwindow.h \
     sunflower.h \
     sun.h \
     wallnut.h \
@@ -91,5 +93,7 @@ FORMS += \
 
 RESOURCES += \
     qrc.qrc
+
+DISTFILES +=
 
 
