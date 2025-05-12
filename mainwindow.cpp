@@ -59,7 +59,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     connect(timer, &QTimer::timeout, scene, &QGraphicsScene::advance);
     connect(timer, &QTimer::timeout, this, &MainWindow::addZombie);
     connect(timer, &QTimer::timeout, this, &MainWindow::checkWin);
-    timer->start(33);
+    connect(timer, &QTimer::timeout, this, &MainWindow::checkLose);
     view->show();
 }
 
@@ -132,8 +132,7 @@ void MainWindow::addZombie()
 }
 
 //检查是否失败
-void MainWindow::checkLose()
-{
+void MainWindow::checkLose(){
     static int time = 1 * 1000 / 33;
     static int counter = 0;
     if (++counter >= time)
@@ -153,8 +152,7 @@ void MainWindow::checkLose()
 }
 
 //检查是否成功
-void MainWindow::checkWin()
-{
+void MainWindow::checkWin(){
     if (score >= 999){
         scene->addPixmap(QPixmap(":/images/WeWin.png"))->setPos(255, 140);
         scene->advance();
@@ -162,4 +160,8 @@ void MainWindow::checkWin()
         file->writeScore(score);
         return;
     }
+}
+
+void MainWindow::timerStart(){
+    timer->start(33);
 }

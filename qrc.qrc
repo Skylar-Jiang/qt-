@@ -56,5 +56,6 @@
         <file>audio/Kitanai_Sekai.wav</file>
         <file>txt/maxscore.txt</file>
         <file>images/startbg.jpg</file>
+        <file>images/WeWin.png</file>
     </qresource>
 </RCC>

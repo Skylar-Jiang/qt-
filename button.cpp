@@ -70,7 +70,7 @@ void Exit::mousePressEvent(QGraphicsSceneMouseEvent *event)
     {
         sound->stop();
         timer->stop();
-        QFile file("/Users/apple/Desktop/plantVSzombie/txt/maxscore.txt");
+        QFile file(":/txt/maxscore.txt");
         if( *maxscore < *score)
         {
             if(file.open(QIODevice::WriteOnly | QIODevice::Text))

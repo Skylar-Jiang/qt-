@@ -32,6 +32,7 @@ public:
     void addZombie();
     void checkLose();
     void checkWin();
+    void timerStart();
 private:
     File *file;
     int maxScore;

@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     QObject::connect(&start, &startwindow::startGame, [&]() {
             start.hide();
             w.show();
+            w.timerStart();
         });
 
     start.show();
